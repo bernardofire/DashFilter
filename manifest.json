@@ -3,8 +3,6 @@
   "version": "1.0",
   "description": "Filter the alerts of your github dashboard",
 
-  "background_page": "html/background_page.html",
-
   "content_scripts": [
     {
         "matches": ["https://github.com/", "https://github.com/dashboard/yours"],

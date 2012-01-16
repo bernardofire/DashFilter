@@ -4,17 +4,23 @@ function setOptionsPanel() {
         <div id="dash_options">\
             <input type="checkbox" checked id="watch_started"> Watch </input>\
             <input type="checkbox" checked id="follow"> Follow </input>\
+            <input type="checkbox" checked id="push"> Push </input>\
+            <input type="checkbox" checked id="create"> Create </input>\
+            <input type="checkbox" checked id="fork"> Fork </input>\
+            <input type="checkbox" checked id="issues_opened"> Opened Issue</input>\
+            <input type="checkbox" checked id="issues_closed"> Closed Issue</input>\
+            <input type="checkbox" checked id="issues_comment"> Commented Issue</input>\
+            <input type="checkbox" checked id="gist"> Gist </input>\
+            <input type="checkbox" checked id="gollum"> Gollum </input>\
         </div>\
     ');
 
     var inputs = div.find('input');
     inputs.change(function() {
         setOptionsIntoLocalStorage();
-        filter();
+        filterDashboard();
     });
 }
-
-//################################## FILTER #########################################
 
 function setOptionsIntoLocalStorage() {
     var dash_options = verifyOptions();
@@ -45,8 +51,7 @@ function configureOptionsInPage() {
     });
 }
 
-function filter() {
-    //$('#dashboard .news').children().each(function() { console.log($(this).attr('class').replace('alert', '').trim()) })
+function filterDashboard() {
     $('#dashboard .news').children().each(function() {
         dash = JSON.parse(localStorage.getItem('dashfilter_options'));
         var id = $(this).attr('class').replace('alert', '').trim();
