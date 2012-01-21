@@ -15,8 +15,11 @@ function setOptionsPanel() {
                 <input type="checkbox" checked id="gollum"> Gollum </input>\
             </div>\
             <div id="filter_helper">\
+                <span> Options: </span>\
                 <a href="javascript:void(0);" id="invert"> Invert </a>\
+                -\
                 <a href="javascript:void(0);" id="none"> None </a>\
+                -\
                 <a href="javascript:void(0);" id="all"> All </a>\
             </div>\
         </div>\
