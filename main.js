@@ -17,12 +17,14 @@ function setOptionsPanel() {
             <div id="filter_helper">\
                 <a href="javascript:void(0);" id="invert"> Invert </a>\
                 <a href="javascript:void(0);" id="none"> None </a>\
+                <a href="javascript:void(0);" id="all"> All </a>\
             </div>\
         </div>\
     ');
 
     $('#invert').click(invertOptions);
     $('#none').click(noneOption);
+    $('#all').click(allOptions);
 
     var inputs = div.find('input');
     inputs.change(function() {
@@ -80,6 +82,12 @@ function invertOptions() {
 
 function noneOption() {
     $('#dash_options').children().removeAttr('checked');
+    setOptionsIntoLocalStorage();
+    filterDashboard();
+}
+
+function allOptions() {
+    $('#dash_options').children().attr('checked', 'checked');
     setOptionsIntoLocalStorage();
     filterDashboard();
 }
