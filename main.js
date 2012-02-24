@@ -99,6 +99,7 @@ function allOptions() {
 
 (function main() {
     setOptionsPanel();
+    filterDashboard();
     if (getOptionsFromLocalStorage)
         configureOptionsInPage();
     else
