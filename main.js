@@ -31,9 +31,13 @@ function setOptionsPanel() {
 
     var inputs = div.find('input');
     inputs.change(function() {
-        setOptionsIntoLocalStorage();
-        filterDashboard();
+        setOptionsAndFilterDash();
     });
+}
+
+function setOptionsAndFilterDash() {
+    setOptionsIntoLocalStorage();
+    filterDashboard();
 }
 
 function setOptionsIntoLocalStorage() {
@@ -79,20 +83,17 @@ function invertOptions() {
     $('#dash_options').children().each(function() {
         $(this).attr('checked') ? $(this).removeAttr('checked') : $(this).attr('checked', 'checked');
     });
-    setOptionsIntoLocalStorage();
-    filterDashboard();
+    setOptionsAndFilterDash();
 }
 
 function noneOption() {
     $('#dash_options').children().removeAttr('checked');
-    setOptionsIntoLocalStorage();
-    filterDashboard();
+    setOptionsAndFilterDash();
 }
 
 function allOptions() {
     $('#dash_options').children().attr('checked', 'checked');
-    setOptionsIntoLocalStorage();
-    filterDashboard();
+    setOptionsAndFilterDash();
 }
 
 //###############################################################################################
