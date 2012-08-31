@@ -73,7 +73,11 @@ function filterDashboard() {
     $('#dashboard .news').children().each(function() {
         dash = JSON.parse(localStorage.getItem('dashfilter_options'));
         var id = $(this).attr('class').replace('alert', '').trim();
-        dash[id] ? $(this).show() : $(this).hide();
+        if (dash[id]) {
+            $(this).show();
+        } else if (id != 'pagination ajax_paginate') {
+            $(this).hide();
+        }
     })
 }
 
